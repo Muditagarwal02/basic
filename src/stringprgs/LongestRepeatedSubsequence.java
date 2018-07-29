@@ -10,30 +10,27 @@ import java.util.Comparator;
 public class LongestRepeatedSubsequence {
 
 	public static void main(String[] args) throws ParseException {
+		//input String
 		String str = "AABBCCDDAABB";
 
 		Map<String, Integer> map = new HashMap<String, Integer>();
-
+		
+		//adding string into hashmap with count
 		for (int index = 0; index < str.length() - 1; index++) {
-			// System.out.println(map);
-			// System.out.println(map.containsKey(str.charAt(index))+"Map
-			// contains");
 			if (map.containsKey(str.charAt(index) + "")) {
-				// System.out.println("Mudit");
 				map.put(str.charAt(index) + "", map.get(str.charAt(index) + "") + 1);
 			} else {
 				map.put("" + str.charAt(index), 1);
 			}
 		}
 
-		// System.out.println(map);
 		Set<Entry<String, Integer>> entries = map.entrySet();
 		Comparator<Entry<String, Integer>> valueComparator = new Comparator<Entry<String, Integer>>() {
 			@Override
 			public int compare(Entry<String, Integer> e1, Entry<String, Integer> e2) {
 				int v1 = e1.getValue();
 				int v2 = e2.getValue();
-				// return v1.compareTo(v2);
+				// return v1.compareTo(v2); for objects
 				if (v1 < v2)
 					return v2;
 				else if (v1 == v2)
@@ -62,10 +59,6 @@ public class LongestRepeatedSubsequence {
 			}
 
 		}
-
-		// Read more:
-		// http://www.java67.com/2015/01/how-to-sort-hashmap-in-java-based-on.html#ixzz5Mc4C1FOu
-
 	}
 
 }
