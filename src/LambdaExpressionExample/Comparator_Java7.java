@@ -1,0 +1,31 @@
+package LambdaExpressionExample;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Comparator_Java7 {
+
+	public static void main(String[] args) {
+		
+		List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
+		//descending order
+		Collections.sort(names, new Comparator<String>() {
+		    @Override
+		    public int compare(String a, String b) {
+		        return b.compareTo(a);
+		    }
+		});
+		System.out.println("Descending order : "+ names);
+		//ascending order
+		Collections.sort(names, new Comparator<String>() {
+		    @Override
+		    public int compare(String a, String b) {
+		        return a.compareTo(b);
+		    }
+		});
+		System.out.println("Ascending order : "+names);
+	}
+
+}
